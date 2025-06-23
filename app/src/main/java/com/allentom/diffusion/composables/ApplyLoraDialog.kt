@@ -81,7 +81,7 @@ fun ApplyLoraDialog(
                     onValueChange = {
                         weight = "%.2f".format(it).toFloat()
                     },
-                    valueRange = 0f..1f,
+                    valueRange = -10f..10f,
                 )
                 FlowRow(
                     modifier = Modifier
