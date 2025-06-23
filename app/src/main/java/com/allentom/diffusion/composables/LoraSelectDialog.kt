@@ -181,7 +181,7 @@ fun LoraSelectDialog(
                                                 Spacer(modifier = Modifier.height(8.dp))
                                                 Slider(
                                                     value = lora.weight,
-                                                    valueRange = 0f..2f,
+                                                    valueRange = -10f..10f,
                                                     onValueChange = { newVal ->
                                                         selectedLoraList =
                                                             selectedLoraList.toMutableList()
