@@ -26,7 +26,7 @@ import java.io.Serializable
 
 data class Prompt(
     var text: String,
-    var piority: Int,
+    var piority: Float,
     var promptId: Long? = null,
     var translation: String? = null,
     var regionIndex: Int = 0,
@@ -40,11 +40,11 @@ data class Prompt(
     var generateItem :TemplateItem? = null
 ) : Serializable {
     fun getPromptText(): String {
-        if (piority == 0) {
+        if (piority == 0f) {
             return text
         }
         var curText = text
-        for (i in 0 until piority) {
+        for (i in 0 until piority.toInt()) { // 转换为 Int 进行循环
             curText = "($curText)"
         }
         return curText
@@ -91,7 +91,7 @@ data class SavePrompt(
     fun toPrompt(): Prompt {
         return Prompt(
             text = text,
-            piority = 0,
+            piority = 0f,
             promptId = promptId,
             translation = nameCn,
             category = category,
