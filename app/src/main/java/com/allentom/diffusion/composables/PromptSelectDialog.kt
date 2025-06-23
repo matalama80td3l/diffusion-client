@@ -641,10 +641,12 @@ fun PromptEditPanel(
                     ) {
                         Text(text = stringResource(R.string.weight))
                         Spacer(modifier = Modifier.width(8.dp))
-                        IntSlider(
+                        Slider(
                             value = prompt.piority,
-                            range = 1..10,
-                            modifier = Modifier.weight(1f)
+                            range = 0f..10f,
+                            onValueChange = {
+                                prompt.piority = "%.2f".format(it).toFloat()
+                            },
                         ) {
                             updateListByPrompt(prompt) { prompt ->
                                 prompt.copy(
